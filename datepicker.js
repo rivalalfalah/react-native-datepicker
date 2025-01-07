@@ -108,7 +108,13 @@ class DatePicker extends Component {
     if (this.props.disabled) return;
 
     Keyboard.dismiss();
-    this.setState({ date: this.getDate(), showPicker: true, showTimePicker: false });
+    if(this.props.mode === 'time'){
+      this.setState({ date: this.getDate(), showPicker: true, showTimePicker: true });
+    }
+    else{
+      this.setState({ date: this.getDate(), showPicker: true, showTimePicker: false });
+    }
+    
     if (this.props.onOpenModal) this.props.onOpenModal();
   };
 
